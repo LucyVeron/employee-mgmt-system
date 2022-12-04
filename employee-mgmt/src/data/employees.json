@@ -2,51 +2,51 @@
     {
         "id": "2556347198",
         "name": "Beverlee Shinfield",
-        "status": "added"
+        "status": "Added"
     },
     {
         "id": "6337043529",
         "name": "Hallie Aslum",
-        "status": "incheck"
+        "status": "In Check"
     },
     {
         "id": "0131254464",
         "name": "Torin Comini",
-        "status": "approved"
+        "status": "Approved"
     },
     {
         "id": "7939560158",
         "name": "Modesta Jansey",
-        "status": "active"
+        "status": "Active"
     },
     {
         "id": "6826479133",
         "name": "Inez Willishire",
-        "status": "inactive"
+        "status": "Inactive"
     },
     {
         "id": "9925644100",
         "name": "Jamal Forth",
-        "status": "added"
+        "status": "Added"
     },
     {
         "id": "9446236495",
         "name": "Saw Linford",
-        "status": "incheck"
+        "status": "In Check"
     },
     {
         "id": "8691479353",
         "name": "Culver Juschke",
-        "status": "approved"
+        "status": "Approved"
     },
     {
         "id": "9781783885",
         "name": "Leilah Gough",
-        "status": "active"
+        "status": "Active"
     },
     {
         "id": "5844916948",
         "name": "Lacy Illingworth",
-        "status": "inactive"
+        "status": "Inactive"
     }
 ]
