@@ -4,6 +4,7 @@ import './App.css';
 export interface Employee {
   id: number;
   name: string;
+  status: string;
 }
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <h1>Employees</h1>
       <ul>
         {employees.map((employee: Employee) => (
-          <li key={employee.id}>{employee.name}</li>
+          <li key={employee.id}>{employee.name}: <strong>{employee.status}</strong></li>
         ))}
       </ul>
     </div>
