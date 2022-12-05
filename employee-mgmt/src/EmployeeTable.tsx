@@ -11,7 +11,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Employee } from "./Employee";
+import { Employee } from "./interfaces/Employee";
 
 export default function EmployeeTable() {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -24,9 +24,16 @@ export default function EmployeeTable() {
       });
   }, []);
 
-  const handleChange = (event: SelectChangeEvent, index: number) => {
-    employees[index].status = event.target.value;
-    setEmployees(employees);
+  const handleChange = (event: SelectChangeEvent, id: number) => {
+    setEmployees(
+      employees.map((employee) => {
+        if (employee.id === id) {
+          return { ...employee, status: event.target.value };
+        } else {
+          return employee;
+        }
+      })
+    );
   };
 
   return (
@@ -40,7 +47,7 @@ export default function EmployeeTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employees.map((employee: Employee, index: number) => (
+          {employees.map((employee: Employee) => (
             <TableRow
               key={employee.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -58,7 +65,7 @@ export default function EmployeeTable() {
                       id="demo-simple-select"
                       value={employee.status}
                       label="Age"
-                      onChange={(event) => handleChange(event, index)}
+                      onChange={(event) => handleChange(event, employee.id)}
                     >
                       <MenuItem value={"Added"}>Added</MenuItem>
                       <MenuItem value={"In Check"}>In Check</MenuItem>
