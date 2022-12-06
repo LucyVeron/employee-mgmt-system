@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -13,27 +12,9 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Employee } from "./interfaces/Employee";
 
-export default function EmployeeTable() {
-  const [employees, setEmployees] = useState<Employee[]>([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/employees")
-      .then((res: Response) => res.json())
-      .then((result: Employee[]) => {
-        setEmployees(result);
-      });
-  }, []);
-
+export default function EmployeeTable( props: any ) {
   const handleChange = (event: SelectChangeEvent, id: number) => {
-    setEmployees(
-      employees.map((employee) => {
-        if (employee.id === id) {
-          return { ...employee, status: event.target.value };
-        } else {
-          return employee;
-        }
-      })
-    );
+    props.changeStatus(event.target.value, id);
   };
 
   return (
@@ -47,7 +28,7 @@ export default function EmployeeTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employees.map((employee: Employee) => (
+          {props.employees.map((employee: Employee) => (
             <TableRow
               key={employee.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
