@@ -6,6 +6,7 @@ import * as React from "react";
 import AddDialog from "./AddDialog";
 import { useEffect, useState } from "react";
 import { Employee } from "./interfaces/Employee";
+import employeeData from "./data/employees.json";
 
 function App() {
   const [open, setOpen] = React.useState(false);
@@ -13,11 +14,8 @@ function App() {
   const [employees, setEmployees] = useState<Employee[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/employees")
-      .then((res: Response) => res.json())
-      .then((result: Employee[]) => {
-        setEmployees(result);
-      });
+    //  GET /employees/
+    setEmployees(employeeData as Employee[]);
   }, []);
 
   const handleClickOpen = () => {
@@ -25,12 +23,20 @@ function App() {
   };
 
   const handleClose = (value: string) => {
+    //  PATCH /employees/{employee_id}
     setOpen(false);
     setNewName(value);
-    /* POST new name here */
+    const newEmployee: Employee = {
+      id: employees.length + 1,
+      name: value,
+      status: "Added",
+    };
+
+    setEmployees((current) => [...current, newEmployee]);
   };
 
   const handleChangeStatus = (status: string, id: number) => {
+    //  POST /employees/
     setEmployees(
       employees.map((employee) => {
         if (employee.id === id) {
@@ -45,10 +51,7 @@ function App() {
   return (
     <div className="App">
       <h1>Employees</h1>
-      <EmployeeTable
-        employees={employees}
-        changeStatus={handleChangeStatus}
-      />
+      <EmployeeTable employees={employees} changeStatus={handleChangeStatus} />
       <Fab
         className="fab"
         color="primary"

@@ -1,26 +1,26 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "name": "Beverlee Shinfield",
         "status": "Added"
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "Hallie Aslum",
         "status": "In Check"
     },
     {
-        "id": "3",
+        "id": 3,
         "name": "Torin Comini",
         "status": "Approved"
     },
     {
-        "id": "4",
+        "id": 4,
         "name": "Modesta Jansey",
         "status": "Active"
     },
     {
-        "id": "5",
+        "id": 5,
         "name": "Inez Willishire",
         "status": "Inactive"
     }
