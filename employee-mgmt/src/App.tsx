@@ -22,6 +22,10 @@ function App() {
     setOpen(true);
   };
 
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
   const handleClose = (value: string) => {
     //  PATCH /employees/{employee_id}
     setOpen(false);

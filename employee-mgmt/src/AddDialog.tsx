@@ -13,6 +13,10 @@ export default function AddDialog(props: DialogProps) {
   const { open, onClose } = props;
   const [name, setName] = React.useState("");
 
+  const handleCancel = () => {
+    setName("");
+  };
+
   const handleClose = () => {
     onClose(name);
   };
@@ -28,7 +32,7 @@ export default function AddDialog(props: DialogProps) {
         <Input value={name} onChange={onInput} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleCancel}>Cancel</Button>
         <Button onClick={handleClose}>Add</Button>
       </DialogActions>
     </Dialog>
