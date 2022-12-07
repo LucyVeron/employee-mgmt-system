@@ -6,7 +6,7 @@ import {
   DialogTitle,
   Input,
 } from "@mui/material";
-import { DialogProps } from "./interfaces/DialogProps";
+import { DialogProps } from "../interfaces/DialogProps";
 import * as React from "react";
 
 export default function AddDialog(props: DialogProps) {

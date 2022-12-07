@@ -10,7 +10,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Employee } from "./interfaces/Employee";
+import { Employee } from "../interfaces/Employee";
+import Status from "./Status";
 
 export default function EmployeeTable( props: any ) {
   const handleChange = (event: SelectChangeEvent, id: number) => {
@@ -36,7 +37,8 @@ export default function EmployeeTable( props: any ) {
               <TableCell>{employee.id}</TableCell>
               <TableCell>{employee.name}</TableCell>
               <TableCell>
-                <Box sx={{ minWidth: 120 }}>
+                <Status />
+                {/* <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
                       Status
@@ -55,7 +57,7 @@ export default function EmployeeTable( props: any ) {
                       <MenuItem value={"Inactive"}>Inactive</MenuItem>
                     </Select>
                   </FormControl>
-                </Box>
+                </Box> */}
               </TableCell>
             </TableRow>
           ))}

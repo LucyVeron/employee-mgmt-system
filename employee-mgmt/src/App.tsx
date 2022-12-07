@@ -1,9 +1,9 @@
 import "./App.scss";
-import EmployeeTable from "./EmployeeTable";
+import EmployeeTable from "./components/EmployeeTable";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import * as React from "react";
-import AddDialog from "./AddDialog";
+import AddDialog from "./components/AddDialog";
 import { useEffect, useState } from "react";
 import { Employee } from "./interfaces/Employee";
 import employeeData from "./data/employees.json";
