@@ -14,6 +14,7 @@ export default function Status(props: any) {
     <ButtonGroup>
       {labels.map((label: string, index: number) => (
         <Button
+          className="App-status"
           key={label}
           value={label}
           variant={selected === label ? "contained" : "outlined"}
