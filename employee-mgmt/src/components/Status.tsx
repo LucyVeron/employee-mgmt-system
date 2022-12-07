@@ -1,12 +1,13 @@
 import { Button, ButtonGroup } from "@mui/material";
 import React from "react";
 
-export default function Status() {
+export default function Status(props: any) {
   const [selected, setSelected] = React.useState("Added");
   const labels = ["Added", "In Check", "Approved", "Active", "Inactive"];
 
-  const handleClick = (event: any) => {
+  const handleClick = (event: any, id: number) => {
     setSelected(event.target.value);
+    props.change(event.target.value, id);
   };
 
   return (
@@ -16,7 +17,7 @@ export default function Status() {
           key={label}
           value={label}
           variant={selected === label ? "contained" : "outlined"}
-          onClick={handleClick}
+          onClick={(event) => handleClick(event, props.employee.id)}
         >
           {label}
         </Button>
