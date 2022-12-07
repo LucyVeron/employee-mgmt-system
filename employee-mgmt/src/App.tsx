@@ -10,7 +10,7 @@ import employeeData from "./data/employees.json";
 
 function App() {
   const [open, setOpen] = React.useState(false);
-  const [newName, setNewName] = React.useState("");
+  const [newEmployee, setNewEmployee] = React.useState("");
   const [employees, setEmployees] = useState<Employee[]>([]);
 
   useEffect(() => {
@@ -19,28 +19,28 @@ function App() {
   }, []);
 
   const handleClickOpen = () => {
+    setNewEmployee("");
     setOpen(true);
   };
 
-  const handleCancel = () => {
+  const handleClose = (newEmployeeName?: string) => {
     setOpen(false);
-  };
 
-  const handleClose = (value: string) => {
-    //  PATCH /employees/{employee_id}
-    setOpen(false);
-    setNewName(value);
-    const newEmployee: Employee = {
-      id: employees.length + 1,
-      name: value,
-      status: "Added",
-    };
+    //  POST /employees/
+    if (newEmployeeName) {
+      setNewEmployee(newEmployeeName);
+      const newEmployee: Employee = {
+        id: employees.length + 1,
+        name: newEmployeeName,
+        status: "Added",
+      };
 
-    setEmployees((current) => [...current, newEmployee]);
+      setEmployees((current) => [...current, newEmployee]);
+    }
   };
 
   const handleChangeStatus = (status: string, id: number) => {
-    //  POST /employees/
+    //  PATCH /employees/{employee_id}
     setEmployees(
       employees.map((employee) => {
         if (employee.id === id) {

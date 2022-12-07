@@ -11,14 +11,16 @@ import * as React from "react";
 
 export default function AddDialog(props: DialogProps) {
   const { open, onClose } = props;
-  const [name, setName] = React.useState("");
+  const [name, setName] = React.useState('');
 
-  const handleCancel = () => {
+  const handleClose = (cancelled: boolean) => {
+    let newName = name;
     setName("");
-  };
-
-  const handleClose = () => {
-    onClose(name);
+    if (cancelled) {
+      onClose();
+    } else {
+      onClose(newName);
+    }
   };
 
   const onInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,14 +28,14 @@ export default function AddDialog(props: DialogProps) {
   };
 
   return (
-    <Dialog onClose={handleClose} open={open}>
+    <Dialog onClose={() => handleClose(true)} open={open}>
       <DialogTitle>New Employee</DialogTitle>
       <DialogContent>
         <Input value={name} onChange={onInput} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleCancel}>Cancel</Button>
-        <Button onClick={handleClose}>Add</Button>
+        <Button onClick={() => handleClose(true)}>Cancel</Button>
+        <Button onClick={() => handleClose(false)}>Add</Button>
       </DialogActions>
     </Dialog>
   );
