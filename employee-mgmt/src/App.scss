@@ -9,12 +9,11 @@ body {
   opacity: 0.8;
   width: 80vw;
   margin: auto;
-}
-
-.App-fab {
-  position: fixed !important;
-  bottom: 50px;
-  right: 50px;
+  &-fab {
+    position: fixed !important;
+    bottom: 50px;
+    right: 50px;
+  }
 }
 
 @media only screen and (max-width: 700px) {

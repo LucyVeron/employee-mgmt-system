@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import EmployeeTable from "./EmployeeTable";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
