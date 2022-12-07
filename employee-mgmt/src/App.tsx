@@ -57,7 +57,7 @@ function App() {
       <h1>Employees</h1>
       <EmployeeTable employees={employees} changeStatus={handleChangeStatus} />
       <Fab
-        className="fab"
+        className="App-fab"
         color="primary"
         aria-label="add"
         onClick={handleClickOpen}
